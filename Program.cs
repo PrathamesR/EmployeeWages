@@ -11,6 +11,7 @@ namespace EmployeeWages
         static bool isPresent;
         static int wagePerHour;
         static int fullDayHour;
+        static int partTimeHour;
 
         static void Main(string[] args)
         {
@@ -29,6 +30,10 @@ namespace EmployeeWages
             wagePerHour = 20;
             fullDayHour = 8;
             Console.WriteLine("Daily Employee Wage is " + wagePerHour * fullDayHour);
+
+            //Use Case 3
+            partTimeHour = 8;
+            Console.WriteLine("Part Time Employee Wage is " + wagePerHour * partTimeHour);
         }
     }
 }
