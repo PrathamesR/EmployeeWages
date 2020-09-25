@@ -12,6 +12,10 @@ namespace EmployeeWages
 
         static void Main(string[] args)
         {
+            
+            Console.WriteLine("Welcome to Employee Wages Problem");
+
+            //Use Case 1
             isPresent = new Random().Next(0, 2) == 0;
 
             if (isPresent)
