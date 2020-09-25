@@ -26,6 +26,8 @@ namespace EmployeeWages
                 Console.WriteLine("Employee is Absent");
 
             //Use Case 2
+            wagePerHour = 20;
+            fullDayHour = 8;
             Console.WriteLine("Daily Employee Wage is " + wagePerHour * fullDayHour);
         }
     }
