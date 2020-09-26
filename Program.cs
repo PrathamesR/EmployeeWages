@@ -13,6 +13,7 @@ namespace EmployeeWages
         static int fullDayHour;
         static int partTimeHour;
         static int daysOfMonth;
+        static int hoursWorked;
 
         static int CalculateDailyWage(int a, int b)
         {
@@ -22,6 +23,11 @@ namespace EmployeeWages
         static int CalculateMontlyWage(int a, int b, int days)
         {
             return CalculateDailyWage(a,b) * days;
+        }
+
+        static int CalculateWageByHour(int a, int b)
+        {
+            return a * b;
         }
 
         static void Main(string[] args)
@@ -65,6 +71,10 @@ namespace EmployeeWages
             //Use Case 5
             daysOfMonth = 20;
             Console.WriteLine("The Monthly Wage is " + CalculateMontlyWage(wagePerHour,fullDayHour,daysOfMonth));
+
+            //Use Case 6
+            hoursWorked = 100;
+            Console.WriteLine("The Wage is " + CalculateWageByHour(wagePerHour, hoursWorked));           
         }
     }
 }
