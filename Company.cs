@@ -4,14 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp1
+namespace EmployeeWageProblem
 {
     public class Company
     {
-        int wagePerHour = 0;
-        int hoursFullTime = 0;
-        int hoursPartTime = 0;
-        string compName = "";
+        private int wagePerHour = 0;
+        private int hoursFullTime = 0;
+        private int hoursPartTime = 0;
+        private string compName = "";
+        private int totalWage;
 
         public Company(int wagePerHour,int hoursFullTime, int hoursPartTime, string companyName)
         {
@@ -19,29 +20,40 @@ namespace ConsoleApp1
             this.hoursFullTime = hoursFullTime;
             this.hoursPartTime = hoursPartTime;
             compName = companyName;
+
+            ComputeCompanyEmployeeWage();
+        }
+
+        public int GetTotalWage()
+        {
+            return totalWage;
+        }
+
+        public string GetName()
+        {
+            return compName;
         }
 
         public void ComputeCompanyEmployeeWage()
         {
-            int totalWage = 0;
+            totalWage = 0;
             int hours = 0;
             int days = 0;
             while (days < 20 && hours < 100)
             {
                 if (new Random().Next(0, 1) == 0)
                 {
-                    totalWage +=  this.hoursFullTime* wagePerHour;
+                    totalWage +=  hoursFullTime* wagePerHour;
                     days++;
                     hours += hoursFullTime;
                 }
                 else
                 {
-                    totalWage += this.hoursPartTime * wagePerHour;
+                    totalWage += hoursPartTime * wagePerHour;
                     days++;
                     hours += hoursPartTime;
                 }
             }
-            Console.WriteLine("Employee of " + compName + " has the salary of " + totalWage);
         }
 
     }

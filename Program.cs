@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ConsoleApp1;
+using EmployeeWageProblem;
 
 namespace EmployeeWages
 {
@@ -138,9 +138,22 @@ namespace EmployeeWages
             ComputeCompanyEmployeeWage(compName, 7, 3, 200);
 
             //Use Case 9
-            Company comp1 = new Company(100, 8, 4, "Prathamesh");
-
+            Company comp1 = new Company(100, 8, 4, "ABC");
             comp1.ComputeCompanyEmployeeWage();
+
+            //Use Case 10
+            Company comp2 = new Company(200, 10, 3, "BCD");
+            Company comp3 = new Company(150, 9, 4, "EFG");
+
+            CompanyManager companyManager = new CompanyManager();
+
+            companyManager.AddCompany(comp1);
+            companyManager.AddCompany(comp2);
+            companyManager.AddCompany(comp3);
+
+            Console.WriteLine();
+            companyManager.ListCompanies();
+
             Console.ReadLine();
         }
     }
