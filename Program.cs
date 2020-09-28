@@ -15,6 +15,33 @@ namespace EmployeeWages
         static int daysOfMonth;
         static int hoursWorked;
 
+        static int ComputeEmployeeWage()
+        {
+            hoursWorked = 100;
+            Console.WriteLine("The Wage is " + CalculateWageByHour(wagePerHour, hoursWorked));
+
+            int totalWage = 0;
+            int hours = 0;
+            int days = 0;
+            while (days < 20 && hours < 100)
+            {
+                if (new Random().Next(0, 1) == 0)
+                {
+                    totalWage += CalculateDailyWage(fullDayHour, partTimeHour);
+                    days++;
+                    hours += fullDayHour;
+                }
+                else
+                {
+                    totalWage += CalculateDailyWage(partTimeHour, partTimeHour);
+                    days++;
+                    hours += partTimeHour;
+                }
+            }
+            return totalWage;
+
+        }
+
         static int CalculateDailyWage(int a, int b)
         {
             return a * b;
@@ -72,9 +99,11 @@ namespace EmployeeWages
             daysOfMonth = 20;
             Console.WriteLine("The Monthly Wage is " + CalculateMontlyWage(wagePerHour,fullDayHour,daysOfMonth));
 
-            //Use Case 6
-            hoursWorked = 100;
-            Console.WriteLine("The Wage is " + CalculateWageByHour(wagePerHour, hoursWorked));           
+            //Use Case 6 + Use Case 7 Refractor            
+            Console.WriteLine("The Employee Wage is " + ComputeEmployeeWage());
+
+
+            Console.ReadLine();
         }
     }
 }
