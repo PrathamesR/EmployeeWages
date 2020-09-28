@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ConsoleApp1;
 
 namespace EmployeeWages
 {
@@ -42,9 +43,28 @@ namespace EmployeeWages
 
         }
 
-        static void ComputeCompanyEmployeeWage(string compName)
+        static void ComputeCompanyEmployeeWage(string compName, int hoursFull,int hoursPartTime, int wagePerHour)
         {
-            Console.WriteLine("Employee of " + compName + " has the salary of " + ComputeEmployeeWage());
+            hoursWorked = 100;
+            int totalWage = 0;
+            int hours = 0;
+            int days = 0;
+            while (days < 20 && hours < 100)
+            {
+                if (new Random().Next(0, 1) == 0)
+                {
+                    totalWage += CalculateDailyWage(hoursFull, wagePerHour);
+                    days++;
+                    hours += fullDayHour;
+                }
+                else
+                {
+                    totalWage += CalculateDailyWage(hoursFull, wagePerHour);
+                    days++;
+                    hours += partTimeHour;
+                }
+            }
+            Console.WriteLine("Employee of " + compName + " has the salary of " + totalWage);
         }
 
         static int CalculateDailyWage(int a, int b)
@@ -109,9 +129,18 @@ namespace EmployeeWages
 
 
             //Use Case 8
-            string compName = "Capgemini";
-            ComputeCompanyEmployeeWage(compName);
+            Console.WriteLine("\nEnter Company Name");
+            string compName = Console.ReadLine();
+            ComputeCompanyEmployeeWage(compName,8,4,200);
 
+            Console.WriteLine("\nEnter Company Name");
+            compName = Console.ReadLine();
+            ComputeCompanyEmployeeWage(compName, 7, 3, 200);
+
+            //Use Case 9
+            Company comp1 = new Company(100, 8, 4, "Prathamesh");
+
+            comp1.ComputeCompanyEmployeeWage();
             Console.ReadLine();
         }
     }
