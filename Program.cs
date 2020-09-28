@@ -42,6 +42,11 @@ namespace EmployeeWages
 
         }
 
+        static void ComputeCompanyEmployeeWage(string compName)
+        {
+            Console.WriteLine("Employee of " + compName + " has the salary of " + ComputeEmployeeWage());
+        }
+
         static int CalculateDailyWage(int a, int b)
         {
             return a * b;
@@ -102,6 +107,10 @@ namespace EmployeeWages
             //Use Case 6 + Use Case 7 Refractor            
             Console.WriteLine("The Employee Wage is " + ComputeEmployeeWage());
 
+
+            //Use Case 8
+            string compName = "Capgemini";
+            ComputeCompanyEmployeeWage(compName);
 
             Console.ReadLine();
         }
