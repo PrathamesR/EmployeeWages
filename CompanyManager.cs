@@ -7,7 +7,13 @@ using EmployeeWageProblem;
 
 namespace EmployeeWageProblem
 {
-    class CompanyManager
+    public interface ICompanyManager
+    {
+        void ListCompanies();
+        void AddCompany(Company company);
+    }
+
+    class CompanyManager : ICompanyManager
     {
         private List<Company> companyList = new List<Company>();
 
