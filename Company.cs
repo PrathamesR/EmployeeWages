@@ -13,6 +13,7 @@ namespace EmployeeWageProblem
         private int hoursPartTime = 0;
         private string compName = "";
         private int totalWage;
+        private int dailyWage;
 
         public Company(int wagePerHour,int hoursFullTime, int hoursPartTime, string companyName)
         {
@@ -20,8 +21,14 @@ namespace EmployeeWageProblem
             this.hoursFullTime = hoursFullTime;
             this.hoursPartTime = hoursPartTime;
             compName = companyName;
+            dailyWage = wagePerHour * hoursFullTime;
 
             ComputeCompanyEmployeeWage();
+        }
+
+        public int GetDailyWage()
+        {
+            return dailyWage;
         }
 
         public int GetTotalWage()

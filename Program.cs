@@ -154,6 +154,9 @@ namespace EmployeeWages
             Console.WriteLine();
             companyManager.ListCompanies();
 
+            //Use Case 14
+            Console.Write(comp1.GetDailyWage());
+
             Console.ReadLine();
         }
     }
